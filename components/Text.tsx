@@ -10,7 +10,7 @@ type TextProps = {
 const Text = styled.p<TextProps>`
   font-size: 16px;
   font-weight: 400;
-  
+
   color: ${({ color }) => color || "#000"};
   margin: ${({ margin }) => margin || "0"};
   width: ${({ width }) => width || "auto"};

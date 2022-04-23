@@ -3,7 +3,7 @@ import dark from "../../public/burger-dark.svg";
 import light from "../../public/burger-light.svg";
 
 export const StyledHeader = styled.header<{ transparent?: boolean }>`
-  ${({ transparent }) => transparent ? `` : `background-color: #fff;`};
+  ${({ transparent }) => (transparent ? `` : `background-color: #fff;`)};
   margin: 0 auto;
   padding: 30px 20px;
 `;
@@ -14,27 +14,28 @@ export const HeaderConteiner = styled.div`
 `;
 
 export const Logo = styled.figure<{ transparent?: boolean }>`
-  ${({ transparent }) => transparent ? `color: #fff;` : `color: #d15eff;`};
+  ${({ transparent }) => (transparent ? `color: #fff;` : `color: #d15eff;`)};
   font-size: 32px;
 `;
 
 export const Burger = styled.figure<{ transparent?: boolean; open: boolean }>`
   position: relative;
-  z-index: 2;
+  z-index: 3;
   margin-left: auto;
   width: 50px;
   aspect-ratio: 1;
-  background-image: ${({ transparent }) => transparent ? `url(${light.src})` : `url(${dark.src})`};
+  background-image: ${({ transparent }) =>
+    transparent ? `url(${light.src})` : `url(${dark.src})`};
   transition: transform 0.5s ease-in-out;
-  transform: ${({ open }) => open ? "rotate(90deg)" : "rotate(0)"};
+  transform: ${({ open }) => (open ? "rotate(90deg)" : "rotate(0)")};
 
   @media (min-width: 500px) {
     display: none;
   }
 `;
 
-export const Shadow = styled.div<{open: boolean}>`
-  display: ${({ open }) => open ? "block" : "none"};
+export const Shadow = styled.div<{ open: boolean }>`
+  display: ${({ open }) => (open ? "block" : "none")};
   position: absolute;
   inset: 0 0 auto auto;
   height: 100vh;
@@ -42,14 +43,15 @@ export const Shadow = styled.div<{open: boolean}>`
   background-color: #4f4f4f2f;
 `;
 
-export const Nav = styled.nav<{ transparent?: boolean, open: boolean }>`
+export const Nav = styled.nav<{ transparent?: boolean; open: boolean }>`
   position: absolute;
-  inset:${({ open }) => open ? "0 0 auto auto" : "0 -100% auto auto"};
-  background-color: ${({ transparent }) => transparent ? "#522265ce" : "#fff"};
+  inset: ${({ open }) => (open ? "0 0 auto auto" : "0 -100% auto auto")};
+  background-color: ${({ transparent }) =>
+    transparent ? "#522265ce" : "#fff"};
   height: 100vh;
   width: 320px;
   padding-top: 170px;
-  z-index: 1;
+  z-index: 2;
   transition: all 0.5s ease-in-out;
 
   & li {
