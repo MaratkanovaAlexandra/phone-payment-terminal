@@ -11,7 +11,11 @@ const Button: FC<ButtonProps> = (props) => {
   const { children, transparent, clickHandler } = props;
 
   return (
-    <StyledButton transparent={transparent} onClick={clickHandler}>
+    <StyledButton
+      transparent={transparent}
+      onClick={clickHandler}
+      type="button"
+    >
       <p>{children}</p>
     </StyledButton>
   );
