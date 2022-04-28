@@ -15,6 +15,10 @@ export default styled.button<{ transparent?: boolean }>`
   & > p {
     position: relative;
     z-index: 1;
+
+    display: flex;
+    align-items: center;
+
     font-size: 20px;
     font-weight: 400;
     color: #fff;
@@ -45,7 +49,7 @@ export default styled.button<{ transparent?: boolean }>`
 
   &:hover::before {
     ${({ transparent }) =>
-      transparent ? "inset: auto 0 -5% auto;" : "background-color: #b700ff7e;"}
+      transparent ? "inset: auto 0 -5% auto;" : "background-color: #b700ff45;"}
   }
 
   @media (min-width: 500px) {
