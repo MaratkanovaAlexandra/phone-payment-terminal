@@ -28,6 +28,10 @@ export const Item = styled.li`
   cursor: pointer;
   transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 
+  & img {
+    border-radius: 10px;
+  }
+
   &::after {
     content: url(${Arrow.src});
     position: absolute;
