@@ -22,3 +22,10 @@ a {
   padding: 0;
   margin: 0;
 }
+
+.error {
+  position: absolute;
+  transform: translateY(93px);
+  color: red;
+  font-size: .6rem;
+}
