@@ -16,6 +16,7 @@ export const HeaderConteiner = styled.div`
 export const Logo = styled.figure<{ transparent?: boolean }>`
   ${({ transparent }) => (transparent ? `color: #fff;` : `color: #d15eff;`)};
   font-size: 32px;
+  cursor: pointer;
 `;
 
 export const Burger = styled.figure<{ transparent?: boolean; open: boolean }>`

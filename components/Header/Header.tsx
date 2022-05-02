@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Link from "next/link";
 import Wrapper from "../Wrapper";
 
@@ -18,28 +18,38 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = (props) => {
   const { transparent } = props;
-  const { route } = useRouter();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [scroll, setScroll] = useState(true);
+
+  useEffect(() => {
+    (document.body.parentElement as HTMLElement).style.overflow = "visible";
+  }, []);
+
+  const openMenu = () => {
+    setOpen(!open);
+    setScroll(!scroll);
+    if (scroll)
+      (document.body.parentElement as HTMLElement).style.overflow = "hidden";
+    else
+      (document.body.parentElement as HTMLElement).style.overflow = "visible";
+  };
 
   return (
     <StyledHeader transparent={transparent}>
-      <Shadow open={open} onClick={() => setOpen(false)} />
+      <Shadow open={open} onClick={openMenu} />
       <Wrapper>
         <HeaderConteiner>
-          <Logo transparent={transparent}>
+          <Logo transparent={transparent} onClick={() => router.push("/")}>
             <h1>PPT</h1>
           </Logo>
-          <Burger
-            transparent={transparent}
-            open={open}
-            onClick={() => setOpen(!open)}
-          />
+          <Burger transparent={transparent} open={open} onClick={openMenu} />
           <Nav transparent={transparent} open={open}>
             <ul>
-              <li data-disabled={route === "/"}>
+              <li data-disabled={router.route === "/"}>
                 <Link href="/">Welcome</Link>
               </li>
-              <li data-disabled={route === "/providers"}>
+              <li data-disabled={router.route === "/providers"}>
                 <Link href="/providers">Providers</Link>
               </li>
             </ul>
