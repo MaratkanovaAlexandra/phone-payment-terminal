@@ -5,16 +5,19 @@ type ButtonProps = {
   children: ReactNode | ReactNode[];
   clickHandler?: () => void;
   transparent?: boolean;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 const Button: FC<ButtonProps> = (props) => {
-  const { children, transparent, clickHandler } = props;
+  const { children, transparent, type, disabled, clickHandler } = props;
 
   return (
     <StyledButton
       transparent={transparent}
       onClick={clickHandler}
-      type="button"
+      type={type || "button"}
+      disabled={disabled}
     >
       <p>{children}</p>
     </StyledButton>
@@ -24,6 +27,8 @@ const Button: FC<ButtonProps> = (props) => {
 Button.defaultProps = {
   clickHandler: () => {},
   transparent: false,
+  type: "button",
+  disabled: false,
 };
 
 export default Button;

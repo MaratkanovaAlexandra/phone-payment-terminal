@@ -12,6 +12,12 @@ export default styled.button<{ transparent?: boolean }>`
   cursor: pointer;
   overflow: ${({ transparent }) => (transparent ? "hidden" : "visible")};
 
+  &[disabled] {
+    background-color: #acacac;
+    border-color: #acacac;
+    pointer-events: none;
+  }
+
   & > p {
     position: relative;
     z-index: 1;
