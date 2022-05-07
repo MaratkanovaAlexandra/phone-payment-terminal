@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import dark from "../../public/burger-dark.svg";
-import light from "../../public/burger-light.svg";
 
 export const StyledHeader = styled.header<{ transparent?: boolean }>`
   ${({ transparent }) => (transparent ? `` : `background-color: #fff;`)};
@@ -26,7 +24,7 @@ export const Burger = styled.figure<{ transparent?: boolean; open: boolean }>`
   width: 50px;
   aspect-ratio: 1;
   background-image: ${({ transparent }) =>
-    transparent ? `url(${light.src})` : `url(${dark.src})`};
+    transparent ? `url(/burger-light.svg)` : `url(/burger-dark.svg)`};
   transition: transform 0.5s ease-in-out;
   transform: ${({ open }) => (open ? "rotate(90deg)" : "rotate(0)")};
 
@@ -37,6 +35,7 @@ export const Burger = styled.figure<{ transparent?: boolean; open: boolean }>`
 
 export const Shadow = styled.div<{ open: boolean }>`
   display: ${({ open }) => (open ? "block" : "none")};
+  z-index: 1;
   position: absolute;
   inset: 0 0 auto auto;
   height: 100vh;

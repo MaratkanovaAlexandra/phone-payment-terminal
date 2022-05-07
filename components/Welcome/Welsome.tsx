@@ -9,13 +9,11 @@ import Text from "../Text";
 import Button from "../Button";
 import Background from "./Welcome.style";
 
-import Back from "../../public/back.jpg";
-
 const Welcome: FC = () => {
   const router = useRouter();
 
   return (
-    <Background image={Back.src} size="cover">
+    <Background>
       <Header />
       <Wrapper padding="110px 10px 354px">
         <Center direction="column">

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Arrow from "../../public/arrow.svg";
 
 export const Background = styled.div`
   min-height: 86vh;
@@ -34,7 +33,7 @@ export const Item = styled.li`
   }
 
   &::after {
-    content: url(${Arrow.src});
+    content: url(/arrow.svg);
     position: absolute;
     inset: 0 0 0 auto;
     width: 84px;

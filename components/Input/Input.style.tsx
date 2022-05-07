@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Close from "../../public/close.svg";
 
 export default styled.div<{ valid?: boolean }>`
   position: relative;
@@ -14,7 +13,7 @@ export default styled.div<{ valid?: boolean }>`
       ? ``
       : `
       &::before {
-        content: url(${Close.src});
+        content: url(/close.src);
         height: 20px;
         width: 20px;
         position: absolute;
