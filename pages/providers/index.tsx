@@ -20,7 +20,7 @@ const Providers: NextPage<ProvidersProps> = ({ providers }) => (
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
-    `${process.env.VERCEL_URL || " http://localhost:3000"}/api/get-providers`
+    "https://tranquil-shelf-20388.herokuapp.com/providers"
   );
   const providers = await res.json();
 
@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       providers,
     },
-    revalidate: 5,
+    revalidate: 1,
   };
 };
 
