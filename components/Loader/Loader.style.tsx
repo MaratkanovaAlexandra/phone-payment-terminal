@@ -9,8 +9,9 @@ const Ring = keyframes`
   }
 `;
 
-export const Back = styled.div`
+export const Back = styled.div<{ fullScreen?: boolean }>`
   height: 100%;
+  ${({ fullScreen }) => (fullScreen ? "padding: 40vh 0 0;" : "")}
   width: 100%;
 `;
 

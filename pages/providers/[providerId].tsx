@@ -14,7 +14,7 @@ type ProviderProps = {
 const Provider: NextPage<ProviderProps> = ({ provider }) => {
   const router = useRouter();
 
-  if (router.isFallback) return <Loader />;
+  if (router.isFallback) return <Loader fullScreen />;
 
   return (
     <>
