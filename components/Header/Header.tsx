@@ -12,13 +12,9 @@ import {
   Nav,
 } from "./Header.styles";
 
-type HeaderProps = {
-  transparent?: boolean;
-};
-
-const Header: FC<HeaderProps> = (props) => {
-  const { transparent } = props;
+const Header: FC = () => {
   const router = useRouter();
+  const transparent = router.route === "/";
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState(true);
 
