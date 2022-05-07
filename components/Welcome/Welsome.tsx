@@ -16,7 +16,7 @@ const Welcome: FC = () => {
 
   return (
     <Background image={Back.src} size="cover">
-      <Header transparent />
+      <Header />
       <Wrapper padding="110px 10px 354px">
         <Center direction="column">
           <Title fontSize="large" margin="0 0 20px" color="#fff">
@@ -26,11 +26,11 @@ const Welcome: FC = () => {
             This is my test task using next.js.
           </Text>
           <Text margin="0 0 40px" center color="#fff">
-            Unfortunately, I'm not very good at design, but I hope you'll like
-            it.
+            Unfortunately, I&apos;m not very good at design, but I hope
+            you&apos;ll like it.
           </Text>
           <Button transparent clickHandler={() => router.push("/providers")}>
-            Let's get started!
+            Let&apos;s get started!
           </Button>
         </Center>
       </Wrapper>
