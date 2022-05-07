@@ -15,7 +15,7 @@ export const Container = styled.div`
   background-color: #fafafa;
   border-radius: 5px;
   padding: 20px 20px;
-  height: 83vh;
+  height: 86vh;
 
   & h2 {
     text-align: center;
