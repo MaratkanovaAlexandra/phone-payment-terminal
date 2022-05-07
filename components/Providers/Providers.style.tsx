@@ -3,6 +3,7 @@ import Arrow from "../../public/arrow.svg";
 
 export const Background = styled.div`
   min-height: 86vh;
+  padding: 0 0 30px;
   background-color: #f1f1f1;
 `;
 
