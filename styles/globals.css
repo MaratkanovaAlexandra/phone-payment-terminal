@@ -7,7 +7,7 @@ body {
   position: relative;
 }
 
-body {
+main {  
   contain: paint;
 }
 

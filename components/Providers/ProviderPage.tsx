@@ -18,7 +18,7 @@ const ProviderPage: FC<ProviderPagePrors> = ({ providers }) => {
   const router = useRouter();
 
   return (
-    <>
+    <main>
       <Header />
       <Background>
         <Wrapper maxWidth="700px" padding="50px 10px 0">
@@ -37,7 +37,7 @@ const ProviderPage: FC<ProviderPagePrors> = ({ providers }) => {
           </Center>
         </Wrapper>
       </Background>
-    </>
+    </main>
   );
 };
 

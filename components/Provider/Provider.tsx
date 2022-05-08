@@ -42,79 +42,79 @@ const Provider: FC<ProviderProps> = (props) => {
 
   return (
     <>
-      <Header />
-      <Background>
-        <Wrapper maxWidth="700px">
-          {loadings && <Loader />}
-          {!loadings && (
-            <Container>
-              <Formik
-                initialValues={{
-                  phoneNumber: "",
-                  amount: "",
-                }}
-                validationSchema={validate}
-                onSubmit={async (values) => {
-                  setError(false);
-                  setLoadings(true);
-                  const res = await fetch(
-                    `https://tranquil-shelf-20388.herokuapp.com/pay/${id}`,
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(values),
+      {error && <Error errCode={errorCode} message={errorMessage} />}
+      <main>
+        <Header />
+        <Background>
+          <Wrapper maxWidth="700px">
+            {loadings && <Loader />}
+            {!loadings && (
+              <Container>
+                <Formik
+                  initialValues={{
+                    phoneNumber: "",
+                    amount: "",
+                  }}
+                  validationSchema={validate}
+                  onSubmit={async (values) => {
+                    setError(false);
+                    setLoadings(true);
+                    const res = await fetch(
+                      `https://tranquil-shelf-20388.herokuapp.com/pay/${id}`,
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(values),
+                      }
+                    );
+                    const { message } = await res.json();
+                    if (res.ok) router.push("/providers");
+                    else {
+                      setLoadings(false);
+                      setError(true);
+                      setErrorCode(res.status);
+                      setErrorMessage(message);
                     }
-                  );
-                  const { message } = await res.json();
-                  if (res.ok) router.push("/providers");
-                  else {
-                    setLoadings(false);
-                    setError(true);
-                    setErrorCode(res.status);
-                    setErrorMessage(message);
-                  }
-                }}
-              >
-                {(formik) => (
-                  <div>
-                    {error && (
-                      <Error errCode={errorCode} message={errorMessage} />
-                    )}
-                    <Title fontSize="normal">
-                      <img src={icon} alt={name} width="30" height="30" />
-                      {name}
-                    </Title>
-                    <Form>
-                      <Input
-                        label="PhoneNumber:"
-                        name="phoneNumber"
-                        type="text"
-                        mask="+7-999-999-99-99"
-                      />
-                      <Input
-                        label="Amount:"
-                        name="amount"
-                        type="text"
-                        mask="9999 rub."
-                      />
-                      <Button
-                        type="submit"
-                        disabled={
-                          +formik.values.amount.split(" ")[0] <= 0 ||
-                          +formik.values.amount.split(" ")[0] > 1000 ||
-                          !regex.test(formik.values.phoneNumber)
-                        }
-                      >
-                        Send
-                      </Button>
-                    </Form>
-                  </div>
-                )}
-              </Formik>
-            </Container>
-          )}
-        </Wrapper>
-      </Background>
+                  }}
+                >
+                  {(formik) => (
+                    <div>
+                      <Title fontSize="normal">
+                        <img src={icon} alt={name} width="30" height="30" />
+                        {name}
+                      </Title>
+                      <Form>
+                        <Input
+                          label="PhoneNumber:"
+                          name="phoneNumber"
+                          type="text"
+                          mask="+7-999-999-99-99"
+                        />
+                        <Input
+                          label="Amount:"
+                          name="amount"
+                          type="text"
+                          mask="9999 rub."
+                        />
+                        <Button
+                          type="submit"
+                          disabled={
+                            +formik.values.amount.split(" ")[0] <= 0 ||
+                            +formik.values.amount.split(" ")[0] > 1000 ||
+                            !regex.test(formik.values.phoneNumber)
+                          }
+                        >
+                          Send
+                        </Button>
+                      </Form>
+                    </div>
+                  )}
+                </Formik>
+              </Container>
+            )}
+          </Wrapper>
+        </Background>
+      </main>
     </>
   );
 };

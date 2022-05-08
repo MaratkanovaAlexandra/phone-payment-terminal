@@ -30,77 +30,77 @@ const AddProvider: FC = () => {
 
   return (
     <>
-      <Header />
-      <Background>
-        <Wrapper maxWidth="700px">
-          {loadings && <Loader />}
-          {!loadings && (
-            <Container>
-              <Formik
-                initialValues={{
-                  name: "",
-                  icon: "",
-                }}
-                validationSchema={validate}
-                onSubmit={async (values) => {
-                  setError(false);
-                  if (!values.icon || !values.name) return;
-                  const provider = {
-                    id: 0,
-                    ...values,
-                  };
-                  setLoadings(true);
-                  const res = await fetch(
-                    "https://tranquil-shelf-20388.herokuapp.com/providers/create",
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(provider),
+      {error && <Error errCode={errorCode} message={errorMessage} />}
+      <main>
+        <Header />
+        <Background>
+          <Wrapper maxWidth="700px">
+            {loadings && <Loader />}
+            {!loadings && (
+              <Container>
+                <Formik
+                  initialValues={{
+                    name: "",
+                    icon: "",
+                  }}
+                  validationSchema={validate}
+                  onSubmit={async (values) => {
+                    setError(false);
+                    if (!values.icon || !values.name) return;
+                    const provider = {
+                      id: 0,
+                      ...values,
+                    };
+                    setLoadings(true);
+                    const res = await fetch(
+                      "https://tranquil-shelf-20388.herokuapp.com/providers/create",
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(provider),
+                      }
+                    );
+                    const { message } = await res.json();
+                    if (res.ok) router.push("/providers");
+                    else {
+                      setLoadings(false);
+                      setError(true);
+                      setErrorCode(res.status);
+                      setErrorMessage(message);
                     }
-                  );
-                  const { message } = await res.json();
-                  if (res.ok) router.push("/providers");
-                  else {
-                    setLoadings(false);
-                    setError(true);
-                    setErrorCode(res.status);
-                    setErrorMessage(message);
-                  }
-                }}
-              >
-                {(formik) => (
-                  <div>
-                    {error && (
-                      <Error errCode={errorCode} message={errorMessage} />
-                    )}
-                    <Title fontSize="normal">Create a new provider</Title>
-                    <Form>
-                      <Input label="Provider Name:" name="name" type="text" />
-                      <Input label="Icon:" name="icon" type="text" />
-                      <Button
-                        type="submit"
-                        disabled={
-                          !(formik.values.name.length > 1) ||
-                          !formik.values.icon
-                        }
-                      >
-                        <Image
-                          src="/plus.svg"
-                          alt="plus"
-                          height="48px"
-                          width="48px"
-                          layout="fixed"
-                        />
-                        Add Provider
-                      </Button>
-                    </Form>
-                  </div>
-                )}
-              </Formik>
-            </Container>
-          )}
-        </Wrapper>
-      </Background>
+                  }}
+                >
+                  {(formik) => (
+                    <div>
+                      <Title fontSize="normal">Create a new provider</Title>
+                      <Form>
+                        <Input label="Provider Name:" name="name" type="text" />
+                        <Input label="Icon:" name="icon" type="text" />
+                        <Button
+                          type="submit"
+                          disabled={
+                            !(formik.values.name.length > 1) ||
+                            !formik.values.icon
+                          }
+                        >
+                          <Image
+                            src="/plus.svg"
+                            alt="plus"
+                            height="48px"
+                            width="48px"
+                            layout="fixed"
+                          />
+                          Add Provider
+                        </Button>
+                      </Form>
+                    </div>
+                  )}
+                </Formik>
+              </Container>
+            )}
+          </Wrapper>
+        </Background>
+      </main>
     </>
   );
 };
