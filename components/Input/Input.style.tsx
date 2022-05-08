@@ -13,7 +13,7 @@ export default styled.div<{ valid?: boolean }>`
       ? ``
       : `
       &::before {
-        content: url(/close.src);
+        content: url(/close.svg);
         height: 20px;
         width: 20px;
         position: absolute;
