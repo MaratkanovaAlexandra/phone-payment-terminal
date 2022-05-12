@@ -2,7 +2,7 @@
 
 ### This project is done using **Next**, **TypeScript** and **Styled Components**.
 
-You can check it **[here](https://phone-payment-terminal-n2xr4568g-tatianavlasova859-gmailcom.vercel.app/)**
+You can check it **[here](https://phone-payment-terminal.vercel.app/)**
 
 At first a wanted to use MongoBd, but it's available now.
 
