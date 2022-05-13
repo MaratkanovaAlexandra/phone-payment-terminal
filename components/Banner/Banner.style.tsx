@@ -12,7 +12,7 @@ const slideIn = keyframes`
   }
 `;
 
-export default styled.div`
+export default styled.div<{ status: "error" | "success" }>`
   position: fixed;
   left: 0;
   bottom: 0;
@@ -21,7 +21,10 @@ export default styled.div`
   right: 0;
 
   min-height: 30px;
-  background-color: #ef5c5c;
+  ${({ status }) =>
+    status === "error"
+      ? "background-color: #ef5c5c;"
+      : "background-color: #5cef7e;"}
   padding: 10px;
   animation: ${slideIn} 0.2s linear forwards;
 
