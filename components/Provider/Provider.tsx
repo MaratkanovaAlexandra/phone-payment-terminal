@@ -9,7 +9,7 @@ import Wrapper from "../Wrapper";
 import Button from "../Button";
 import Title from "../Title";
 import Input from "../Input";
-import Error from "../Error";
+import Banner from "../Banner";
 import Loader from "../Loader";
 import { Background, Container } from "./Provider.style";
 
@@ -35,14 +35,15 @@ const validate = Yup.object({
 const Provider: FC<ProviderProps> = (props) => {
   const { id, name, icon } = props;
   const router = useRouter();
-  const [error, setError] = useState(false);
-  const [errorCode, setErrorCode] = useState(0);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [showBanner, setShowBanner] = useState(false);
+  const [ok, setOk] = useState(true);
+  const [code, setCode] = useState(0);
+  const [bannerMessage, setBannerMessage] = useState("");
   const [loadings, setLoadings] = useState(false);
 
   return (
     <>
-      {error && <Error errCode={errorCode} message={errorMessage} />}
+      {showBanner && <Banner ok={ok} code={code} message={bannerMessage} />}
       <main>
         <Header />
         <Background>
@@ -57,7 +58,6 @@ const Provider: FC<ProviderProps> = (props) => {
                   }}
                   validationSchema={validate}
                   onSubmit={async (values) => {
-                    setError(false);
                     setLoadings(true);
                     const res = await fetch(
                       `https://tranquil-shelf-20388.herokuapp.com/pay/${id}`,
@@ -68,12 +68,14 @@ const Provider: FC<ProviderProps> = (props) => {
                       }
                     );
                     const { message } = await res.json();
-                    if (res.ok) router.push("/providers");
-                    else {
-                      setLoadings(false);
-                      setError(true);
-                      setErrorCode(res.status);
-                      setErrorMessage(message);
+                    setLoadings(false);
+                    setShowBanner(true);
+                    setOk(res.ok);
+                    setCode(res.status);
+                    setBannerMessage(message);
+
+                    if (res.ok) {
+                      setTimeout(() => router.push("/providers"), 500);
                     }
                   }}
                 >
