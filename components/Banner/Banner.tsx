@@ -1,7 +1,7 @@
 import { FC } from "react";
-import BannerComponent from "./Banner.style";
+import { BannerComponent } from "./Banner.style";
 
-import Center from "../Center";
+import { Center } from "../Center";
 
 type BannerPrors = {
   ok: boolean;
@@ -9,7 +9,7 @@ type BannerPrors = {
   message: string;
 };
 
-const Banner: FC<BannerPrors> = (props) => {
+export const Banner: FC<BannerPrors> = (props) => {
   const { ok, code, message } = props;
   return (
     <BannerComponent status={ok ? "success" : "error"}>
@@ -25,5 +25,3 @@ const Banner: FC<BannerPrors> = (props) => {
     </BannerComponent>
   );
 };
-
-export default Banner;

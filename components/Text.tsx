@@ -7,7 +7,7 @@ type TextProps = {
   color?: string;
 };
 
-const Text = styled.p<TextProps>`
+export const Text = styled.p<TextProps>`
   font-size: 16px;
   font-weight: 400;
 
@@ -16,5 +16,3 @@ const Text = styled.p<TextProps>`
   width: ${({ width }) => width || "auto"};
   ${(center) => (center ? "text-align: center;" : "")}
 `;
-
-export default Text;

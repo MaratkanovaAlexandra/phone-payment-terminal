@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useState, useEffect } from "react";
-import Link from "next/link";
-import Wrapper from "../Wrapper";
+
+import { Wrapper } from "../Wrapper";
 
 import {
   StyledHeader,
@@ -12,7 +13,7 @@ import {
   Nav,
 } from "./Header.styles";
 
-const Header: FC = () => {
+export const Header: FC = () => {
   const router = useRouter();
   const transparent = router.route === "/";
   const [open, setOpen] = useState(false);
@@ -59,5 +60,3 @@ const Header: FC = () => {
 Header.defaultProps = {
   transparent: false,
 };
-
-export default Header;

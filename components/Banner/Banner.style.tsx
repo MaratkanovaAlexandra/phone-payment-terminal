@@ -12,7 +12,7 @@ const slideIn = keyframes`
   }
 `;
 
-export default styled.div<{ status: "error" | "success" }>`
+export const BannerComponent = styled.div<{ status: "error" | "success" }>`
   position: fixed;
   left: 0;
   bottom: 0;

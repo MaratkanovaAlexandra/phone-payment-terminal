@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import StyledButton from "./Button.styles";
+import { StyledButton } from "./Button.styles";
 
 type ButtonProps = {
   children: ReactNode | ReactNode[];
@@ -9,7 +9,7 @@ type ButtonProps = {
   disabled?: boolean;
 };
 
-const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = (props) => {
   const { children, transparent, type, disabled, clickHandler } = props;
 
   return (
@@ -30,5 +30,3 @@ Button.defaultProps = {
   type: "button",
   disabled: false,
 };
-
-export default Button;

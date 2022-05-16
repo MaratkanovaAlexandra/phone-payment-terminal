@@ -3,18 +3,18 @@ import { FC } from "react";
 import Image from "next/image";
 
 import { Background } from "./Providers.style";
-import Header from "../Header";
-import Center from "../Center";
-import Wrapper from "../Wrapper";
-import ProviderList from "./ProviderList";
-import Button from "../Button";
-import Provider from "../../interfaces/Provider";
+import { Header } from "../Header";
+import { Center } from "../Center";
+import { Wrapper } from "../Wrapper";
+import { ProviderList } from "./ProviderList";
+import { Button } from "../Button";
+import { IProvider } from "../../interfaces/Provider";
 
 type ProviderPagePrors = {
-  providers: Provider[];
+  providers: IProvider[];
 };
 
-const ProviderPage: FC<ProviderPagePrors> = ({ providers }) => {
+export const ProviderPage: FC<ProviderPagePrors> = ({ providers }) => {
   const router = useRouter();
 
   return (
@@ -40,5 +40,3 @@ const ProviderPage: FC<ProviderPagePrors> = ({ providers }) => {
     </main>
   );
 };
-
-export default ProviderPage;

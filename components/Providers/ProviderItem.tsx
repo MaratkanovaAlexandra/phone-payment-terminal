@@ -2,10 +2,10 @@ import { FC } from "react";
 import { useRouter } from "next/router";
 
 import { Item } from "./Providers.style";
-import Title from "../Title";
-import Provider from "../../interfaces/Provider";
+import { Title } from "../Title";
+import { IProvider } from "../../interfaces/Provider";
 
-const ProviderItem: FC<Provider> = (props) => {
+export const ProviderItem: FC<IProvider> = (props) => {
   const { id, name, icon } = props;
   const router = useRouter();
 
@@ -16,5 +16,3 @@ const ProviderItem: FC<Provider> = (props) => {
     </Item>
   );
 };
-
-export default ProviderItem;

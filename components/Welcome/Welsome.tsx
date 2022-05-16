@@ -1,15 +1,15 @@
 import { useRouter } from "next/router";
 import { FC } from "react";
 
-import Center from "../Center";
-import Header from "../Header";
-import Wrapper from "../Wrapper";
-import Title from "../Title";
-import Text from "../Text";
-import Button from "../Button";
-import Background from "./Welcome.style";
+import { Center } from "../Center";
+import { Header } from "../Header";
+import { Wrapper } from "../Wrapper";
+import { Title } from "../Title";
+import { Text } from "../Text";
+import { Button } from "../Button";
+import { Background } from "./Welcome.style";
 
-const Welcome: FC = () => {
+export const WelcomePage: FC = () => {
   const router = useRouter();
 
   return (
@@ -35,5 +35,3 @@ const Welcome: FC = () => {
     </Background>
   );
 };
-
-export default Welcome;

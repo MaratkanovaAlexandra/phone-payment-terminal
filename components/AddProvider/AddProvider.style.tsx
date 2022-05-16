@@ -53,23 +53,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-// export const StyledForm = styled.form`
-//   margin: 10px 0 0;
-//   padding: 5px;
-
-//   & button {
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//   }
-
-//   @media (min-width: 500px) {
-//     margin: 50px 0 0;
-//     padding: 15px;
-//     & button {
-//       width: auto;
-//       display: inline-block;
-//     }
-//   }
-// `;

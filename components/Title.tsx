@@ -7,7 +7,7 @@ type TitleProps = {
   color?: string;
 };
 
-const StyledTitle = styled.h2<TitleProps>`
+export const Title = styled.h2<TitleProps>`
   font-weight: bold;
   font-size: ${({ fontSize }) => (fontSize === "large" ? "30px" : "25px")};
   color: ${({ color }) => color || "#000"};
@@ -27,5 +27,3 @@ const StyledTitle = styled.h2<TitleProps>`
     font-size: ${({ fontSize }) => (fontSize === "large" ? "110px" : "40px")};
   }
 `;
-
-export default StyledTitle;

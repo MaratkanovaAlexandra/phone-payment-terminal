@@ -1,19 +1,17 @@
 import { FC } from "react";
 
-import ProviderItem from "./ProviderItem";
-import Provider from "../../interfaces/Provider";
+import { ProviderItem } from "./ProviderItem";
+import { IProvider } from "../../interfaces/Provider";
 import { StyledUl } from "./Providers.style";
 
 type ProviderListProps = {
-  providers: Provider[];
+  providers: IProvider[];
 };
 
-const ProviderList: FC<ProviderListProps> = ({ providers }) => (
+export const ProviderList: FC<ProviderListProps> = ({ providers }) => (
   <StyledUl>
     {providers.map((provider) => (
       <ProviderItem {...provider} key={provider.id} />
     ))}
   </StyledUl>
 );
-
-export default ProviderList;

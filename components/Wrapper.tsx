@@ -5,10 +5,8 @@ type WrapperProps = {
   maxWidth?: string;
 };
 
-const Wrapper = styled.section<WrapperProps>`
+export const Wrapper = styled.section<WrapperProps>`
   max-width: ${({ maxWidth }) => maxWidth || "1400px"};
   margin: 0 auto;
   padding: ${({ padding }) => padding || ""};
 `;
-
-export default Wrapper;

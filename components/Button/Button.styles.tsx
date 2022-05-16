@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default styled.button<{ transparent?: boolean }>`
+export const StyledButton = styled.button<{ transparent?: boolean }>`
   position: relative;
 
   background-color: ${({ transparent }) =>
