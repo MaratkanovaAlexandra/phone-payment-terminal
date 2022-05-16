@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default styled.div<{ valid?: boolean }>`
+export const FormControl = styled.div<{ valid?: boolean }>`
   position: relative;
   font-size: 20px;
   display: flex;
