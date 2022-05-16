@@ -2,10 +2,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import { GetStaticProps, GetStaticPaths } from "next";
-import IProvider from "../../interfaces/Provider";
-import Loader from "../../components/Loader";
+import { IProvider } from "../../interfaces/Provider";
+import { Loader } from "../../components/Loader";
 
-import ProviderPage from "../../components/Provider";
+import { ProviderPage } from "../../components/Provider";
 
 type ProviderProps = {
   provider: IProvider;

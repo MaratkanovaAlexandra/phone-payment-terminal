@@ -2,11 +2,11 @@ import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 
 import Head from "next/head";
-import ProviderPage from "../../components/Providers";
-import Provider from "../../interfaces/Provider";
+import { ProviderPage } from "../../components/Providers";
+import { IProvider } from "../../interfaces/Provider";
 
 type ProvidersProps = {
-  providers: Provider[];
+  providers: IProvider[];
 };
 
 const Providers: NextPage<ProvidersProps> = ({ providers }) => (
