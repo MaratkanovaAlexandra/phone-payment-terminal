@@ -30,6 +30,12 @@ const validate = Yup.object({
     .required("Required"),
 });
 
+const validateButton = (values: { phoneNumber: string; amount: string }) =>
+  +values.amount.split("rub")[0] <= 0 ||
+  +values.amount.split("rub")[0] > 1000 ||
+  !regex.test(values.phoneNumber) ||
+  values.phoneNumber.length < 16;
+
 export const ProviderPage: FC<IProvider> = (props) => {
   const { id, name, icon } = props;
   const router = useRouter();
@@ -60,12 +66,6 @@ export const ProviderPage: FC<IProvider> = (props) => {
       setTimeout(() => router.push("/providers"), 500);
     }
   };
-
-  const validateButton = (values: { phoneNumber: string; amount: string }) =>
-    +values.amount.split("rub")[0] <= 0 ||
-    +values.amount.split("rub")[0] > 1000 ||
-    !regex.test(values.phoneNumber) ||
-    values.phoneNumber.length < 16;
 
   return (
     <>
