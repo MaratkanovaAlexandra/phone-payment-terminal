@@ -2,8 +2,15 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header<{ transparent?: boolean }>`
   ${({ transparent }) => (transparent ? `` : `background-color: #fff;`)};
+  position: sticky;
+  top: 0;
+  z-index: 2;
   margin: 0 auto;
   padding: 30px 20px;
+
+  @media (min-width: 500px) {
+    position: static;
+  }
 `;
 
 export const HeaderConteiner = styled.div`
